@@ -6,3 +6,8 @@
 
 ## what it does
  let you create a TUI selection menu with a list of options and a callback function for each option
+
+## how to make it work
+ for now, download `TUIUtilities.py` and voila !
+
+ i'll make it a pip package soon
