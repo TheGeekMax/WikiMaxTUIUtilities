@@ -7,6 +7,9 @@
 ## what it does
  let you create a TUI selection menu with a list of options and a callback function for each option
 
+## dependencies
+ - `blessed`, can be installed with `pip install blessed`
+
 ## how to make it work
  for now, download `TUIUtilities.py` and voila !
 
