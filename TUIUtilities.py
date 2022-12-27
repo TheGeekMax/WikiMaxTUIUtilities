@@ -20,20 +20,42 @@ def tempLoop():
 # objet principal pour le selecteur 
 class Executable:
     def __init__(self):
-        pass
+        self.dataLength = 0
 
     def execute(self):
         pass
 
+    def printData(self,str):
+        return Printer(str,self.dataLength)
+    
+    def addLinecount(self):
+        pass
+
+
+class Printer (Executable):
+    def __init__(self, text, lineCount):
+        Executable.__init__(self)
+        self.text = text
+        self.dataLength = lineCount
+
+    def execute(self):
+        printAt(self.text,3,5+self.dataLength)
+    
+    def addLinecount(self):
+        self.dataLength += 1 
+
 class SelectorFunction(Executable):
     def __init__(self, function):
+        Executable.__init__(self)
         self.function = function
 
     def execute(self):
         self.function()
 
+
 class SelectorMenu(Executable):
     def __init__(self,title):
+        Executable.__init__(self)
         self.key  = [] # liste des noms des fonctions
         self.menu = [] # liste d'objets Executable
         self.title = title
@@ -41,6 +63,10 @@ class SelectorMenu(Executable):
     def add(self, key, executable):
         self.key.append(key)
         self.menu.append(executable)
+        self.dataLength += 1
+
+        for elt in self.menu:
+            elt.addLinecount()
     
     def execute(self):
         clearScreen()
